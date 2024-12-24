@@ -1,6 +1,6 @@
 import styled, { ThemeProvider } from "styled-components";
 import NavBar from "./components/NavBar";
-import { darkTheme } from "./utils/themes";
+import { darkTheme } from "./utils/Themes.js";
 import Hero from "./components/Hero";
 import Skills from "./components/Skills";
 import Education from "./components/Education.jsx";
