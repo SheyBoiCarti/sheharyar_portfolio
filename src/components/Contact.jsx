@@ -119,6 +119,17 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // Check if any field is empty
+        if (
+            !emailRef.current.value.trim() ||
+            !nameRef.current.value.trim() ||
+            !subjectRef.current.value.trim() ||
+            !messageRef.current.value.trim()
+        ) {
+            alert("Please fill in all fields before sending the message.");
+            return;
+        }
+
         // Constructing the message explicitly
         const templateParams = {
             from_email: emailRef.current.value,
@@ -148,6 +159,7 @@ const Contact = () => {
                 }
             );
     };
+
 
     return (
         <Container id="Education">
