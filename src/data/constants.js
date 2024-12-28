@@ -68,10 +68,7 @@ export const skills = [
         name: "XML",
         image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/xml/xml-original.svg",
       },
-      {
-        name: "Flutter",
-        image: "https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg",
-      }
+
     ],
   },
   {
