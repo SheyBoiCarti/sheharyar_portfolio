@@ -254,18 +254,18 @@ Semester 2: Electronic Commerce, Virtual Reality Environment Development, Evolut
   {
     id: 2,
     img: "",
-    school: "Alexander Road High School",
-    date: "Jan 2016 - Dec 2020",
-    desc: "Subjects taken: Mathematics, Information Technology, Computer Application Technology, Life Science, English, Afrikaans, and Life Orientation.",
-    degree: "NSC Certificate",
-  },
-  {
-    id: 3,
-    img: "",
     school: "Udemy",
     date: "Dec 2023 - Jul 2024",
     desc: "A 60+ hour full-stack development course, covering modern technologies like JavaScript (ES6), React, Node.js, Express, MongoDB, and more, with a focus on building real-world projects and deploying scalable web applications.",
     degree: "The Complete 2024 Web Development Bootcamp",
+  },
+  {
+    id: 3,
+    img: "",
+    school: "Alexander Road High School",
+    date: "Jan 2016 - Dec 2020",
+    desc: "Subjects taken: Mathematics, Information Technology, Computer Application Technology, Life Science, English, Afrikaans, and Life Orientation.",
+    degree: "NSC Certificate",
   },
 ];
 
