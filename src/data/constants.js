@@ -238,12 +238,21 @@ export const education = [
     id: 0,
     img: "",
     school: "Nelson Mandela University",
+    date: "Feb 2025 - Dec 2025",
+    desc: `Semester 1: Functional Programming, Data Warehousing, Usability Engineering, Environmental Information Systems, Project Management.
+Semester 2: Electronic Commerce, Virtual Reality Environment Development, Evolutionary Computing & Intelligent Systems, Honours Project (PRIMED - Project Reporting, Insights, and Module Efficiency Dashboard).`,
+    degree: "BCom Honours - Computer Science and Information Systems",
+  },
+  {
+    id: 1,
+    img: "",
+    school: "Nelson Mandela University",
     date: "Oct 2022 - Dec 2024",
     desc: "Relevant coursework includes: Advanced Programming, Database Systems, User Interface Design, Management Information Systems, Financial Management, General & Strategic Management, Advanced Data Structures, Data Structures and Algorithms, Mathematics Special A+B, Business Statistics, Business Systems, Computer Architecture, Web Systems, CS&IS Project.",
     degree: "Bachelor of Commerce - Computer Science and Information Systems",
   },
   {
-    id: 1,
+    id: 2,
     img: "",
     school: "Alexander Road High School",
     date: "Jan 2016 - Dec 2020",
@@ -251,7 +260,7 @@ export const education = [
     degree: "NSC Certificate",
   },
   {
-    id: 2,
+    id: 3,
     img: "",
     school: "Udemy",
     date: "Dec 2023 - Jul 2024",
@@ -261,7 +270,15 @@ export const education = [
 ];
 
 
+
 export const projects = [
+  {
+    title: "PRIMED - Honours Project",
+    description: "A web-based dashboard system for managing WRRV301 module logistics at Nelson Mandela University. Designed for module coordinators to streamline tasks like team creation, supervisor and peer review allocation, deadline tracking, and performance analytics.",
+    functionality: "Automated team creation, supervisor and peer review allocation, milestone tracking, mark calculations, team and student insights.",
+    tech_Stack: "React.js, Supabase, Tailwind CSS",
+    design: "Scalable layout with modular components and configurable artefact-based assessments."
+  },
   {
     title: "UNI_FEVER (Website)",
     description: "Collaborated on developing a full-stack document repository for my final year project, allowing users to search university modules and access related notes, past papers, lecture slides, etc.",
@@ -292,7 +309,7 @@ export const projects = [
     functionality: "Role-based access differentiated functionalities for Admin and Customer.",
     database_Management: "Integrated ADO.NET for database operations.",
     user_Authentication: "Implemented login, logout, and registration."
-  },
+  }
 ];
 
 
