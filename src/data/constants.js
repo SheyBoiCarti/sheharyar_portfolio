@@ -273,6 +273,40 @@ Semester 2: Electronic Commerce, Virtual Reality Environment Development, Evolut
 
 export const projects = [
   {
+    title: "Movie & TV Show Discovery App",
+    date: "12/2025 – 01/2026",
+    description: "Developed a cross-platform mobile app for movie and TV discovery using React Native and Expo.",
+    features: "Integrated TMDB API to fetch and display searchable entertainment content with infinite scrolling. Integrated Google OAuth 2.0 sign-in with Appwrite for secure user authentication. Used cloud database to store and manage user favorite movies and TV shows.",
+    tech_Stack: "React Native (Expo), Tailwind"
+  },
+  {
+    title: "Virtual Reality - Hostage Rescue: Zombie Outbreak",
+    date: "08/2025 – 09/2025",
+    description: "Built a mobile VR experience with gated doors, resource pickups, and HUD updates for health, ammo, and keys.",
+    ai_And_Combat: "Implemented NavMesh enemy AI for roaming, detection, chasing, and ranged combat, plus damage systems for zombies and landmines.",
+    locomotion: "Added comfort locomotion: walk, sprint, jump, snap rotation, and instant 180° turns, with full gamepad controller support.",
+    experience: "Produced a tense survival experience with NPC clue dialogs, environmental VFX, and SFX for footsteps, gunfire, and explosions.",
+    tech_Stack: "Unity"
+  },
+  {
+    title: "Augmented Reality - Fishing",
+    date: "09/2025 – 10/2025",
+    description: "Built a mobile AR fishing prototype using ARCore, with plane tracking to anchor a 3D pond and spawn rod/fish entities on detected surfaces.",
+    interactions: "Implemented gesture and motion interactions: tap to place pond, swipe to cast, on-screen reel control, and device tilt for rod tension/line control via accelerometer and gyroscope.",
+    game_Logic: "Developed real-time bite/hook logic with proximity triggers, hit detection, scoring, and timed challenge mechanics.",
+    fish_AI: "Created fish AI using finite state machines (FSMs) for patrol, investigate, bite, and flee behaviors, with steering reacting to lure proximity, line tension, and timers.",
+    tech_Stack: "Unity"
+  },
+  {
+    title: "CCTV Human vs Non-Human Classification",
+    date: "09/2025 – 10/2025",
+    description: "Collaborated to develop an end-to-end deep learning classification pipeline in TorchSharp on 9,858 128x128 RGB images.",
+    architectures: "Tested and compared multiple CNN architectures: custom 2-layer CNN, LeNet-5 (classic & modernized), AlexNet, ZFNet, and ResNet variants.",
+    results: "Achieved highest validation accuracy of 92.52% with custom CNN; other top results: ZFNet 91.38%, AlexNet 89.96%, modernized LeNet-5 89.76%, ResNet 89.57%, classic LeNet-5 66.13%.",
+    optimization: "Optimized training using BCE loss, dropout, batch normalization, and learning rate tuning.",
+    tech_Stack: "TorchSharp"
+  },
+  {
     title: "PRIMED - Honours Project",
     description: "A web-based dashboard system for managing WRRV301 module logistics at Nelson Mandela University. Designed for module coordinators to streamline tasks like team creation, supervisor and peer review allocation, deadline tracking, and performance analytics.",
     functionality: "Automated team creation, supervisor and peer review allocation, milestone tracking, mark calculations, team and student insights.",
