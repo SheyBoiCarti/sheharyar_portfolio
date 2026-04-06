@@ -7,6 +7,8 @@ import Education from "./components/Education.jsx";
 import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
+import { Analytics } from "@vercel/analytics/react";
+
 
 const Body = styled.div`
     background-color: ${({ theme }) => theme.bg};
@@ -59,6 +61,7 @@ function App() {
                 </Wrapper>
                 <Footer />
             </Body>
+            <Analytics />
         </ThemeProvider>
     );
 }
