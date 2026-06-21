@@ -8,15 +8,11 @@ export const Bio = {
 
   ],
   description:
-    "I’m a recent graduate with a degree in Computer Science and Information Systems," +
-      " eager to apply my knowledge and skills in the professional world. Throughout my " +
-      "studies, I developed a strong foundation in programming, problem-solving," +
-      " and working with a variety of technologies." +
-      " I’m particularly passionate about tackling complex challenges and continuously" +
-      " learning new tools and techniques to improve my work. With a positive attitude," +
-      " a growth mindset, and a collaborative approach, I’m excited to contribute to" +
-      " innovative projects, grow as a professional, and make a meaningful" +
-      " impact in the tech industry.",
+  "I am an Honours graduate in Computer Science and Information Systems with a strong foundation in programming, object-oriented design, databases, and systems development," +
+  " currently working as a Software Developer at Wirk, where I design and implement backend services, work with databases," +
+  " and build APIs for real-world applications while continuously expanding my technical expertise." +
+  " I am particularly passionate about AI engineering and machine learning, with a focus on building intelligent systems for real-world use." +
+  " I actively work on personal projects and consistently develop my skills to stay up to date with the latest advancements in the field.",
   github: "#",
   resume:
     "#",
@@ -230,9 +226,56 @@ export const skills = [
 ];
 
 export const experiences = [
-
+  {
+    id: 0,
+    img: "",
+    company: "Wirk",
+    role: "Software Developer",
+    date: "Jan 2026 - Present",
+    location: "On-site",
+    desc:
+      "Developed features for an existing live game using Unreal Engine (C++ and Blueprints). " +
+      "Implemented 3 custom Xsolla-based game launchers, managing game distribution, key generation, subscriptions, and authentication workflows. " +
+      "Built serverless HTTP functions and a custom GraphQL backend. " +
+      "Contributed to frontend and WordPress applications. " +
+      "Worked with PostgreSQL databases and implemented CI/CD pipelines using Azure DevOps for automated deployments."
+  },
+  {
+    id: 1,
+    img: "",
+    company: "Nelson Mandela University",
+    role: "Student Assistant",
+    date: "Feb 2025 - Jan 2026",
+    location: "On-site",
+    desc:
+      "Tech lead for third-year Computer Science and Information Systems students, providing guidance on web, mobile, and desktop development projects. " +
+      "Assisted students in designing, debugging, and improving software solutions while encouraging best practices in software engineering."
+  },
+  {
+    id: 3,
+    img: "",
+    company: "Freelance",
+    role: "Data Structures and Algorithms Tutor",
+    date: "Jan 2023 - Dec 2025",
+    location: "Remote",
+    desc:
+      "Tutored over 20 students in data structures and algorithms, improving their grades by an average of 10%. " +
+      "Assisted with debugging and optimizing code while teaching best practices for writing clean and efficient solutions. " +
+      "Supported students with coding assignments, tests, and exam preparation through targeted problem-solving strategies."
+  },
+  {
+    id: 2,
+    img: "",
+    company: "Zone Cell 2 & KS Furniture",
+    role: "IT Technician",
+    date: "Jan 2021 - Dec 2021",
+    location: "Port Elizabeth, Eastern Cape, South Africa · On-site",
+    desc:
+      "Provided technical support for mobile phones, computer software, and hardware. " +
+      "Performed software and hardware upgrades, troubleshooting, and repairs. " +
+      "Assisted customers with technical issues and ensured timely resolution of system-related problems."
+  }
 ];
-
 export const education = [
   {
     id: 0,
@@ -346,8 +389,3 @@ export const projects = [
   }
 ];
 
-
-export const TimeLineData = [
-
-
-];
