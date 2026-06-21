@@ -2,52 +2,56 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-// Styled Components
 const Card = styled.div`
     width: 330px;
-    height: ${({ isExpanded }) => (isExpanded ? "auto" : "350px")}; /* Dynamic height */
     background-color: ${({ theme }) => theme.card};
     cursor: pointer;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+    border: 1px solid ${({ theme }) => theme.border};
+    clip-path: polygon(0 15px, 15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    transition: all 0.4s ease;
-    position: relative; /* Enable positioning for child elements */
+    gap: 16px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
 
     &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        filter: brightness(1.05);
+        transform: translateY(-4px);
+        box-shadow: 0 0 20px ${({ theme }) => theme.primary}22;
+        border-color: ${({ theme }) => theme.primary};
     }
 `;
 
 const Image = styled.img`
     width: 100%;
-    height: auto;
-    max-height: 150px;
-    background-color: ${({ theme }) => theme.white};
-    border-radius: 12px;
+    height: 160px;
+    background-color: ${({ theme }) => theme.bgLight};
+    clip-path: polygon(0 10px, 10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
     object-fit: cover;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    border: 1px solid ${({ theme }) => theme.border};
     display: ${({ src }) => (src ? "block" : "none")};
+    filter: grayscale(20%) contrast(105%);
+    transition: all 0.3s ease-in-out;
+
+    ${Card}:hover & {
+        filter: grayscale(0%) contrast(100%);
+        border-color: ${({ theme }) => theme.primary};
+    }
 `;
 
 const Details = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 0 2px;
-    position: relative;
+    gap: 10px;
+    font-family: "JetBrains Mono", monospace;
 `;
 
-const Title = styled.div`
-    font-size: 22px;
-    font-weight: 700;
+const Title = styled.h3`
+    font-family: "Orbitron", sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
     color: ${({ theme }) => theme.text_primary};
     overflow: hidden;
     display: -webkit-box;
@@ -58,90 +62,108 @@ const Title = styled.div`
 `;
 
 const Date = styled.div`
-    font-size: 14px;
-    margin-left: 2px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary};
+    font-size: 12px;
+    font-weight: 500;
+    color: ${({ theme }) => theme.primary};
+    text-shadow: 0 0 5px ${({ theme }) => theme.primary}33;
 `;
 
 const Field = styled.div`
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 400;
-    color: ${({ theme }) => theme.text_primary};
-    margin-top: 8px;
-    padding: 0;
+    color: ${({ theme }) => theme.text_secondary};
+    line-height: 1.6;
 
     & > strong {
-        font-weight: 600;
+        font-family: "Orbitron", sans-serif;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: ${({ theme }) => theme.text_primary};
+        display: block;
+        margin-bottom: 4px;
     }
 
-    .description-text {
-        padding-right: 10px; /* Optional for extra spacing */
-        box-sizing: border-box;
-        display: block;
-        overflow: hidden;
+    ul {
+        padding-left: 16px;
+        margin-top: 4px;
+    }
+
+    li {
+        margin-bottom: 2px;
     }
 `;
 
-const SeeMoreToggle = styled.a`
-    font-size: 16px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text_secondary};
+const SeeMoreToggle = styled.div`
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.secondary};
     cursor: pointer;
-    text-decoration: none;
     margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    
+    &:hover {
+        color: ${({ theme }) => theme.primary};
+        text-shadow: 0 0 8px ${({ theme }) => theme.primary};
+    }
 `;
 
 const Members = styled.div`
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid ${({ theme }) => theme.border};
 `;
 
 const Avatar = styled.img`
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: 5px;
-    background-color: ${({ theme }) => theme.white};
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    border: 3px solid ${({ theme }) => theme.card};
+    width: 32px;
+    height: 32px;
+    clip-path: polygon(0 6px, 6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%);
+    margin-right: 6px;
+    background-color: ${({ theme }) => theme.bgLight};
+    border: 1px solid ${({ theme }) => theme.border};
 `;
 
 const ProjectCard = ({ project }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    // List of fields you want to handle separately (known fields)
     const knownFields = ["title", "description", "date", "member", "image"];
 
-    // Filter out the known fields
     const dynamicFields = Object.keys(project).filter(
         (key) => !knownFields.includes(key)
     );
 
+    const toggleExpand = (e) => {
+        e.stopPropagation();
+        setIsExpanded(!isExpanded);
+    };
+
     return (
-        <Card
-            onClick={() => setIsExpanded(!isExpanded)}
-            isExpanded={isExpanded}
-        >
+        <Card onClick={toggleExpand}>
             <Image src={project.image} />
             <Details>
                 <Title>{project.title}</Title>
-                <Date>{project.date}</Date>
+                <Date>DATE // {project.date}</Date>
 
-                <Field isExpanded={isExpanded}>
+                <Field>
                     <strong>Description:</strong>
-                    <div className="description-text">
+                    <span className="description-text">
                         {project.description}
-                    </div>
+                    </span>
                 </Field>
 
-                {/* Display the rest of the content when expanded */}
                 {isExpanded && (
                     <>
                         {dynamicFields.map((field, index) => (
                             <Field key={index}>
-                                <strong>{field.charAt(0).toUpperCase() + field.slice(1)}:</strong>
+                                <strong>{field}:</strong>
                                 {Array.isArray(project[field]) ? (
                                     <ul>
                                         {project[field].map((item, idx) => (
@@ -156,18 +178,18 @@ const ProjectCard = ({ project }) => {
                     </>
                 )}
 
-                {/* Always show "See More" or "See Less" */}
-                <SeeMoreToggle onClick={() => setIsExpanded(!isExpanded)}>
-                    {isExpanded ? "See less" : "See more..."}
+                <SeeMoreToggle onClick={toggleExpand}>
+                    {isExpanded ? "[ Close log ]" : "[ Read log... ]"}
                 </SeeMoreToggle>
             </Details>
 
-            <Members>
-                {project.member &&
-                    project.member.map((member, index) => (
+            {project.member && project.member.length > 0 && (
+                <Members>
+                    {project.member.map((member, index) => (
                         <Avatar key={index} src={member.img} />
                     ))}
-            </Members>
+                </Members>
+            )}
         </Card>
     );
 };
@@ -187,3 +209,4 @@ ProjectCard.propTypes = {
 };
 
 export default ProjectCard;
+

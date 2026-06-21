@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { education } from "../data/constants";
 import EducationCard from "../cards/EducationCard";
 
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,6 +12,8 @@ const Container = styled.div`
   position: relative;
   z-index: 1;
   align-items: center;
+  padding: 80px 0;
+  border-bottom: 2px solid ${({ theme }) => theme.border};
 `;
 
 const Wrapper = styled.div`
@@ -28,39 +29,41 @@ const Wrapper = styled.div`
     flex-direction: column;
   }
 `;
-const Title = styled.div`
-  font-size: 52px;
+
+const Title = styled.h2`
+  font-family: "Orbitron", sans-serif;
+  font-size: 42px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   margin-top: 20px;
   color: ${({ theme }) => theme.text_primary};
+  text-shadow: 0 0 10px ${({ theme }) => theme.primary}33;
   @media (max-width: 768px) {
     margin-top: 12px;
     font-size: 32px;
   }
 `;
-const Desc = styled.div`
-  font-size: 18px;
+
+const Desc = styled.p`
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   color: ${({ theme }) => theme.text_secondary};
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 
 const Education = () => {
     return (
-        <Container id="Education">
+        <Container id="education" className="cyber-grid">
             <Wrapper>
-                <Title>Education</Title>
-                <Desc
-                    style={{
-                        marginBottom: "40px",
-                    }}
-                >
-                    My education has been a journey of self-discovery and growth. My
-                    educational details are as follows.
+                <Title>Education Logs</Title>
+                <Desc style={{ marginBottom: "40px" }}>
+                    Academic database and training credentials loaded into the main system.
                 </Desc>
 
                 <VerticalTimeline>
@@ -74,4 +77,4 @@ const Education = () => {
     );
 };
 
-export default Education;
+export default Education;

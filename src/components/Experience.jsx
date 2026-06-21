@@ -1,31 +1,25 @@
 import styled from "styled-components";
-import { projects } from "../data/constants";
-import ProjectCard from "../cards/ProjectCard";
+import { experiences } from "../data/constants";
+import ExperienceCard from "../cards/ExperienceCard";
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 80px 16px;
     position: relative;
     z-index: 1;
     align-items: center;
+    padding: 80px 16px;
     border-bottom: 2px solid ${({ theme }) => theme.border};
 `;
 
 const Wrapper = styled.div`
     position: relative;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-direction: column;
     width: 100%;
-    max-width: 1100px;
+    max-width: 900px;
     gap: 12px;
-
-    @media (max-width: 960px) {
-        flex-direction: column;
-    }
 `;
 
 const Title = styled.h2`
@@ -51,43 +45,41 @@ const Desc = styled.p`
     text-align: center;
     font-weight: 500;
     color: ${({ theme }) => theme.text_secondary};
+    margin-bottom: 40px;
 
     @media (max-width: 768px) {
         font-size: 14px;
     }
 `;
 
-const CardContainer = styled.div`
+const CardsWrapper = styled.div`
     display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 28px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-
-    @media (max-width: 768px) {
-        gap: 20px;
-        justify-content: space-around;
-    }
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
 `;
 
-const Projects = () => {
+const Experience = () => {
     return (
-        <Container id="projects" className="cyber-grid">
+        <Container id="experience" className="cyber-grid">
             <Wrapper>
-                <Title>Project Directory</Title>
-                <Desc style={{ marginBottom: "40px" }}>
-                    Index of compiled software builds, system interfaces, and deployed terminals.
+                <Title>Career Timeline</Title>
+                <Desc>
+                    Documented professional logs, developer contributions, and system milestones.
                 </Desc>
-                <CardContainer>
-                    {projects.map((project) => (
-                        <ProjectCard key={project.id} project={project} />
+
+                <CardsWrapper>
+                    {experiences.map((experience, index) => (
+                        <ExperienceCard
+                            key={`experience-${index}`}
+                            experience={experience}
+                        />
                     ))}
-                </CardContainer>
+                </CardsWrapper>
             </Wrapper>
         </Container>
     );
 };
 
-export default Projects;
+export default Experience;
 

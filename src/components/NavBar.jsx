@@ -4,7 +4,9 @@ import { MenuRounded } from "@mui/icons-material";
 import styled from "styled-components";
 
 const NavbarContainer = styled.nav`
-    background-color: ${({ theme }) => theme.bg};
+    background-color: ${({ theme }) => theme.bg}D9;
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid ${({ theme }) => theme.border};
     height: 80px;
     display: flex;
     align-items: center;
@@ -13,6 +15,7 @@ const NavbarContainer = styled.nav`
     top: 0;
     z-index: 10;
     color: white;
+    font-family: "Orbitron", sans-serif;
 `;
 
 const LogoContainer = styled.div`
@@ -29,7 +32,7 @@ const MobileIcon = styled.div`
         font-size: 24px;
         cursor: pointer;
         margin-left: auto;
-        color: ${({ theme }) => theme.text_primary};
+        color: ${({ theme }) => theme.primary};
         svg {
             width: 32px;
             height: 32px;
@@ -43,24 +46,32 @@ const MobileMenu = styled.ul`
     flex-direction: column;
     align-items: start;
     gap: 16px;
-    padding: 12px 40px 24px 40px;
-    background: ${({ theme }) => theme.card_light + 99};
+    padding: 24px 40px;
+    background: ${({ theme }) => theme.card}E6;
+    backdrop-filter: blur(10px);
     position: absolute;
     top: 80px;
     left: 0;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;
     transform: ${({ isOpen }) => (isOpen ? "translateY(0)" : "translateY(-100%)")};
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
-    z-index: ${({ isOpen }) => (isOpen ? "1000" : "-1000")};
+    border-bottom: 2px solid ${({ theme }) => theme.primary};
+    opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
+    z-index: 1000;
 `;
 
 const NavLogo = styled.a`
     text-decoration: none;
-    color: inherit;
+    color: ${({ theme }) => theme.primary};
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px ${({ theme }) => theme.primary}66;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        color: ${({ theme }) => theme.secondary};
+        text-shadow: 0 0 12px ${({ theme }) => theme.secondary}99;
+    }
 `;
 
 const NavItems = styled.ul`
@@ -78,11 +89,33 @@ const NavItems = styled.ul`
 const NavLink = styled.a`
     color: ${({ theme }) => theme.text_primary};
     font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
+    position: relative;
+    
     &:hover {
         color: ${({ theme }) => theme.primary};
+        text-shadow: 0 0 8px ${({ theme }) => theme.primary};
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -6px;
+        left: 0;
+        background-color: ${({ theme }) => theme.primary};
+        transition: width 0.2s ease-in-out;
+        box-shadow: 0 0 8px ${({ theme }) => theme.primary};
+    }
+
+    &:hover::after {
+        width: 100%;
     }
 `;
 
@@ -123,6 +156,7 @@ const Navbar = () => {
             <NavItems>
                 <NavLink href="#about" onClick={handleClick}>About</NavLink>
                 <NavLink href="#skills" onClick={handleClick}>Skills</NavLink>
+                <NavLink href="#experience" onClick={handleClick}>Experience</NavLink>
                 <NavLink href="#projects" onClick={handleClick}>Projects</NavLink>
                 <NavLink href="#education" onClick={handleClick}>Education</NavLink>
                 <NavLink href="#contact" onClick={handleClick}>Contact</NavLink>
@@ -136,6 +170,7 @@ const Navbar = () => {
                 <MobileMenu isOpen={isOpen}>
                     <NavLink href="#about" onClick={handleClick}>About</NavLink>
                     <NavLink href="#skills" onClick={handleClick}>Skills</NavLink>
+                    <NavLink href="#experience" onClick={handleClick}>Experience</NavLink>
                     <NavLink href="#projects" onClick={handleClick}>Projects</NavLink>
                     <NavLink href="#education" onClick={handleClick}>Education</NavLink>
                     <NavLink href="#contact" onClick={handleClick}>Contact</NavLink>

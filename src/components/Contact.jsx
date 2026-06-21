@@ -9,6 +9,8 @@ const Container = styled.div`
     position: relative;
     z-index: 1;
     align-items: center;
+    padding: 80px 16px;
+    border-bottom: 2px solid ${({ theme }) => theme.border};
 `;
 
 const Wrapper = styled.div`
@@ -25,25 +27,30 @@ const Wrapper = styled.div`
     }
 `;
 
-const Title = styled.div`
-    font-size: 52px;
+const Title = styled.h2`
+    font-family: "Orbitron", sans-serif;
+    font-size: 42px;
     text-align: center;
-    font-weight: 600;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     margin-top: 20px;
     color: ${({ theme }) => theme.text_primary};
+    text-shadow: 0 0 10px ${({ theme }) => theme.primary}33;
     @media (max-width: 768px) {
         margin-top: 12px;
         font-size: 32px;
     }
 `;
 
-const Desc = styled.div`
-    font-size: 18px;
+const Desc = styled.p`
+    font-family: "JetBrains Mono", monospace;
+    font-size: 16px;
     text-align: center;
-    font-weight: 600;
+    font-weight: 500;
     color: ${({ theme }) => theme.text_secondary};
     @media (max-width: 768px) {
-        font-size: 16px;
+        font-size: 14px;
     }
 `;
 
@@ -52,47 +59,57 @@ const ContactForm = styled.form`
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    background-color: rgba(17, 25, 40, 0.83);
-    border: 1px solid rgba(255, 255, 255, 0.125);
+    background-color: ${({ theme }) => theme.card};
+    border: 1px solid ${({ theme }) => theme.border};
     padding: 32px;
-    border-radius: 12px;
-    box-shadow: rgba(23, 92, 230, 0.1) 0px 4px 24px;
+    clip-path: polygon(0 20px, 20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
     margin-top: 28px;
-    gap: 12px;
+    gap: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 `;
 
-const ContactTitle = styled.div`
-    font-size: 28px;
+const ContactTitle = styled.h3`
+    font-family: "Orbitron", sans-serif;
+    font-size: 24px;
     margin-bottom: 6px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text_primary};
+    font-weight: 900;
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.primary};
+    text-shadow: 0 0 10px ${({ theme }) => theme.primary}33;
 `;
 
 const ContactInput = styled.input`
     flex: 1;
-    background-color: transparent;
-    border: 1px solid ${({ theme }) => theme.text_secondary + 50};
+    background-color: ${({ theme }) => theme.bg};
+    border: 1px solid ${({ theme }) => theme.border};
     outline: none;
-    font-size: 18px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
     color: ${({ theme }) => theme.text_primary};
-    border-radius: 12px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%);
     padding: 12px 16px;
+    
     &:focus {
-        border: 1px solid ${({ theme }) => theme.primary};
+        border-color: ${({ theme }) => theme.primary};
+        box-shadow: 0 0 10px ${({ theme }) => theme.primary}33;
     }
 `;
 
 const ContactInputMessage = styled.textarea`
     flex: 1;
-    background-color: transparent;
-    border: 1px solid ${({ theme }) => theme.text_secondary + 50};
+    background-color: ${({ theme }) => theme.bg};
+    border: 1px solid ${({ theme }) => theme.border};
     outline: none;
-    font-size: 18px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
     color: ${({ theme }) => theme.text_primary};
-    border-radius: 12px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%);
     padding: 12px 16px;
+    resize: none;
+    
     &:focus {
-        border: 1px solid ${({ theme }) => theme.primary};
+        border-color: ${({ theme }) => theme.primary};
+        box-shadow: 0 0 10px ${({ theme }) => theme.primary}33;
     }
 `;
 
@@ -100,14 +117,26 @@ const ContactButton = styled.input`
     width: 100%;
     text-decoration: none;
     text-align: center;
-    background: hsla(271, 100%, 50%, 1);
-    padding: 13px 16px;
-    margin-top: 2px;
-    border-radius: 12px;
+    background: ${({ theme }) => theme.primary};
+    padding: 14px 16px;
+    margin-top: 10px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
     border: none;
-    color: ${({ theme }) => theme.text_primary};
-    font-size: 18px;
-    font-weight: 600;
+    color: #0a0a0f;
+    font-family: "Orbitron", sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px ${({ theme }) => theme.primary}55;
+
+    &:hover {
+        background: ${({ theme }) => theme.secondary};
+        box-shadow: 0 0 25px ${({ theme }) => theme.secondary};
+        transform: translateY(-2px);
+    }
 `;
 
 const Contact = () => {
@@ -162,14 +191,14 @@ const Contact = () => {
 
 
     return (
-        <Container id="Education">
+        <Container id="contact" className="cyber-grid">
             <Wrapper>
-                <Title>Contact</Title>
+                <Title>Secure Link</Title>
                 <Desc style={{ marginBottom: "40px" }}>
-                    Feel free to reach out to me for any questions or opportunities!
+                    Establish an encrypted handshake to transmit messages directly to Sheharyar.
                 </Desc>
                 <ContactForm onSubmit={handleSubmit}>
-                    <ContactTitle>Email Me 🚀</ContactTitle>
+                    <ContactTitle>COMMS.INIT // EMAIL</ContactTitle>
                     <ContactInput
                         placeholder="Your Email"
                         name="from_email"
@@ -199,3 +228,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
