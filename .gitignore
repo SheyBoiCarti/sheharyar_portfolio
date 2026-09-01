@@ -12,6 +12,16 @@ dist
 dist-ssr
 *.local
 
+# Environment files (keep a sanitized .env.example if one is added)
+.env
+.env.*
+!.env.example
+
+# Test and browser-automation output
+coverage
+playwright-report
+test-results
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
